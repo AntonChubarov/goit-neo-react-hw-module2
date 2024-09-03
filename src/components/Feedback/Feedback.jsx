@@ -1,12 +1,6 @@
 import React from 'react';
 
-const Feedback = ({ stats, totalFeedback, positiveFeedback }) => {
-    const positiveCount = Object.entries(stats)
-        .filter(([key]) => positiveFeedback.includes(key))
-        .reduce((acc, [, count]) => acc + count, 0);
-
-    const positivePercentage = totalFeedback > 0 ? ((positiveCount / totalFeedback) * 100).toFixed(1) : 0;
-
+const Feedback = ({stats, totalFeedback, positivePercentage}) => {
     return (
         <div>
             {Object.entries(stats).map(([key, value]) => (
@@ -15,7 +9,7 @@ const Feedback = ({ stats, totalFeedback, positiveFeedback }) => {
                 </p>
             ))}
             <p>Total: {totalFeedback}</p>
-            <p>Positive feedback: {positivePercentage}%</p>
+            <p>Positive feedback percentage: {positivePercentage}%</p>
         </div>
     );
 };
